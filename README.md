@@ -1,8 +1,10 @@
 # parsa.github.io
-<img src="parsa__)_-_Opera_1403-07-02_11-03-04_1[1].gif" width="750" height="500">
-Web Particle Javascript
 
-<a href="https://lordlarkin.github.io/parsa.github.io/">Parsa taheri - Web Developer<a>
+<img src="parsa__)_-_Opera_1403-07-02_11-03-04_1[1].gif"  alt="Smiley face" width="700" height="400" width:50>
+
+<a href="https://lordlarkin.github.io/parsa.github.io/"> Web Particle Javascript</a>
+
+<a href="https://lordlarkin.github.io/parsa.github.io/">Parsa taheri - Web Developer</a>
 
  Hello! My name is Parsa, and I am a passionate web developer with a deep love for learning and exploring the ever-evolving world of web technologies. My journey into web development began with a curiosity about how websites work and a desire to create engaging, user-friendly experiences on the internet.
 
