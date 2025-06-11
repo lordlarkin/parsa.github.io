@@ -3,33 +3,174 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <style type="text/css">
-      @font-face {
-        font-family: "Intenci Demo";
-        src: url("./assets/fonts/Intenci/IntenciDemoRegular.ttf");
-      }
-
-      @font-face {
-        font-family: "Orbitron";
-        src: url("./assets/fonts/Orbitron/Orbitron-VariableFont_wght.ttf");
-      }
-    </style>
+    <title>parsa :)</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" type="image/jpg" href="./assets/img/parsa.jpeg" />
-    <title>parsa :)</title>
     <script src="./js/p5.min.js"></script>
+
+    <!-- فونت‌ها -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+
+    <style>
+      body {
+        font-family: 'Orbitron', sans-serif;
+        background-color: #0e0e0e;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        padding: 60px 30px;
+        text-align: center;
+      }
+
+      .neon-multicolor {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        background: linear-gradient(270deg,
+          #f8020a, #f83600, #ff00b7, #ff8c00, #f2ff00,
+          #b4fcce, #a2f7fd, #7ae7fa, #f5c7c7, #fac0ba);
+        background-size: 1000% 1000%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: neonTextShift 50s ease infinite;
+        text-shadow:
+          0 0 4px rgba(255, 255, 255, 0.5),
+          0 0 8px rgba(255, 255, 255, 0.3),
+          0 0 12px rgba(255, 255, 255, 0.2);
+      }
+
+      h1.neon-multicolor {
+        font-size: 2.5rem;
+      }
+
+      h3.neon-multicolor {
+        font-size: 2rem;
+      }
+
+      h4.neon-multicolor {
+        font-size: 1.5rem;
+      }
+
+      @keyframes neonTextShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .gooey-button {
+        position: relative;
+        display: inline-block;
+        margin-top: 40px;
+        padding: 24px 90px;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: 'Share Tech Mono', monospace;
+        color: black;
+        background: linear-gradient(270deg,
+          #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #cfd9df,
+          #d4fc79, #96e6a1, #84fab0, #a18cd1, #fbc2eb);
+        background-size: 2000% 2000%;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        overflow: hidden;
+        filter: url("#goo");
+        transition: transform 0.3s ease;
+        animation: gradientShift 50s ease infinite;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .gooey-button:hover {
+        transform: scale(1.05, 1.12);
+        transition: transform 0.25s cubic-bezier(0.25, 1.5, 0.5, 1.2);
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .bubble {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.4;
+        pointer-events: none;
+        transform: scale(0);
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+
+      .bubble.animate {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+    </style>
   </head>
+
   <body>
     <div class="cursor"></div>
     <div class="container">
-      <h1>Hello I'm parsa</h1>
-      <h3
-        class="txt-type"
-        data-wait="2000"
-        data-words='["Frontend Software Engineer"]'
-      ></h3>
-      <h4>Welcome to my Github Profile 👍</h4>
+      <h1 class="neon-multicolor">Hello I'm parsa</h1>
+      <h3 class="neon-multicolor txt-type" data-wait="2000" data-words='["Software Engineer"]'></h3>
+      <h4 class="neon-multicolor">Welcome to my Github Profile 👍</h4>
+
+      <!-- Gooey Button -->
+      <a href="https://github.com/lordlarkin" target="_blank" class="gooey-button">
+        GitHub Profile
+        <span class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </span>
+      </a>
+
+      <!-- Gooey Filter -->
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0  
+                      0 1 0 0 0  
+                      0 0 1 0 0  
+                      0 0 0 20 -10" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- Bubble Script -->
+      <script>
+        document.querySelectorAll('.gooey-button').forEach(button => {
+          button.addEventListener('mousemove', function(e) {
+            const bubbles = this.querySelectorAll('.bubble');
+            bubbles.forEach(bubble => {
+              const size = Math.random() * 20 + 10;
+              bubble.style.width = size + 'px';
+              bubble.style.height = size + 'px';
+              bubble.style.left = e.offsetX + 'px';
+              bubble.style.top = e.offsetY + 'px';
+              bubble.classList.add('animate');
+              setTimeout(() => bubble.classList.remove('animate'), 500);
+            });
+          });
+        });
+      </script>
     </div>
 
     <script src="./js/script.js"></script>
